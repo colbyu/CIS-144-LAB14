@@ -41,12 +41,13 @@ public class DataApplication
             count++;
             }
         scan.close();
+        overpriced(theData);
         searchData(theData);
         feeData(theData);
-            }
-            catch (FileNotFoundException e) 
-            {         
-	e.printStackTrace();
+        }
+    catch (FileNotFoundException e) 
+        {     
+        e.printStackTrace();
         }
     }//end main
     public static void searchData(ArrayList<String> vals)
@@ -88,8 +89,28 @@ public class DataApplication
         System.out.println(" data found ");
     else
         System.out.println(" data not found ");
-		   
     sc.close();
+    }
+    public static void overpriced(ArrayList<String> vals)
+        {
+        System.out.println("looking for overpriced services... ");
+        int limit = 2000;
+        boolean expensive = false;
+        for (int i = 0; i < vals.size(); i++) 
+            {
+            double val = Double.parseDouble(vals.get(2));
+            if(val > limit) 
+                {        
+                expensive = true;
+                break;
+                }
+            }
+    if(expensive == true)
+        System.out.println(" WARNING: overpriced serveces found ");
+    else
+        System.out.println(" no overpriced serveces found ");
+		   
+    
     }
 } //end class
 

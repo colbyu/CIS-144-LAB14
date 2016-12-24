@@ -96,8 +96,12 @@ public class DataApplication
             This section should determine if a value greater than 2000 exists in the
             input file. The problem is that, as it stands, it appears to be
             taking the numeric values of the strings as well, which also are greater
-            than 2000. Not sure how to get this class to only examine the nuleric 
+            than 2000. Not sure how to get this class to only examine the numeric 
             values when we created a String arraylist...
+            
+            I'm  not sure if that's the case, but testing with an incrementing variable 
+            results in returning 20 cases of exceeding 2000. 
+            There are 20 items in the arraylisgt, so is it finding tat they all exceed 2000... ?
             */
         {
         System.out.println("looking for overpriced services... ");

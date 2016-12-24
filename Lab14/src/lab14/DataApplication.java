@@ -43,6 +43,7 @@ public class DataApplication
         scan.close();
         overpriced(theData);
         searchData(theData);
+        searchSpecialty(theData);
         feeData(theData);
         }
     catch (FileNotFoundException e) 
@@ -123,5 +124,23 @@ public class DataApplication
 		   
     
     }
+    public static void searchSpecialty(ArrayList<String> vals)
+        {
+        System.out.print("enter a specialization: ");
+        Scanner sc = new Scanner(System.in);
+        String strSpecial = sc.nextLine().trim(); 
+        int found = 0;
+        for (int i = 0; i < vals.size(); i++) 
+            {
+            if(vals.get(i).equals(strSpecial.trim()))
+                {
+                found = found + 1;
+                }
+            }
+        if(found > 1)
+            System.out.println(found + " specialists found ");
+        else
+            System.out.println(" sprciaist not found ");
+        }
 } //end class
 

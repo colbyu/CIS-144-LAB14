@@ -92,6 +92,13 @@ public class DataApplication
     sc.close();
     }
     public static void overpriced(ArrayList<String> vals)
+            /*
+            This section should determine if a value greater than 2000 exists in the
+            input file. The problem is that, as it stands, it appears to be
+            taking the numeric values of the strings as well, which also are greater
+            than 2000. Not sure how to get this class to only examine the nuleric 
+            values when we created a String arraylist...
+            */
         {
         System.out.println("looking for overpriced services... ");
         int limit = 2000;

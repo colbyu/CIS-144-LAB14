@@ -1,12 +1,13 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ * Ihis class creates an arraylist that consists of just
+ * the fees and then checks for those that are > 2000.
+*/
 package lab14;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
-
+import java.util.Scanner;
 /**
  *
  * @author colby
@@ -14,35 +15,40 @@ import java.util.ArrayList;
 public class overpriced 
     {
     public void overpriced(ArrayList<String> vals)
-            /*
-            This section should determine if a value greater than 2000 exists in the
-            input file. The problem is that, as it stands, it appears to be
-            taking the numeric values of the strings as well, which also are greater
-            than 2000. Not sure how to get this class to only examine the numeric 
-            values when we created a String arraylist...
-            
-            I'm  not sure if that's the case, but testing with an incrementing variable 
-            results in returning 20 cases of exceeding 2000. 
-            There are 20 items in the arraylisgt, so is it finding tat they all exceed 2000... ?
-            */
         {
+        ArrayList<String> feeList = null;
+        try 
+            {
+            File fin = new File("data.txt");
+            Scanner scan = new Scanner(fin);
+            String line = scan.nextLine();
+            feeList = new ArrayList<>();
+            while (scan.hasNextLine()) 
+                {
+                line = scan.nextLine();
+                String[] list = line.split(",");
+                int fee = Integer.parseInt(list[2]);                 
+                feeList.add(String.valueOf(fee));
+                }
+            } 
+        catch (FileNotFoundException ex) 
+            {
+            System.out.println("file not found");
+            }
         System.out.println("looking for overpriced services... ");
         int limit = 2000;
-        boolean expensive = false;
-        for (int i = 0; i < vals.size(); i++) 
+        int expensive = 0;
+        for (int i = 0; i < feeList.size(); i++) 
             {
-            double val = Double.parseDouble(vals.get(2));
+            double val = Double.parseDouble(feeList.get(i));
             if(val > limit) 
                 {        
-                expensive = true;
-                break;
+                expensive += 1;
                 }
             }
-    if(expensive == true)
-        System.out.println(" WARNING: overpriced serveces found ");
+    if(expensive > 0)
+        System.out.println(" WARNING: "+expensive+ " overpriced serveces found ");
     else
         System.out.println(" no overpriced serveces found ");
-		   
-    
     }
-    }
+}

@@ -20,17 +20,17 @@ public class engine
         try 
             {
             File fin = new File("data.txt");
-            Scanner scan = new Scanner(fin);
+            Scanner sc = new Scanner(fin);
             searchData n = new searchData();
             feeData f = new feeData();
             overpriced o = new overpriced();
             searchSpecialty s = new searchSpecialty();
             ArrayList<String> theData = new ArrayList<String>();
             // read the column headings from the flat text file
-            String line = scan.nextLine();
-            while(scan.hasNextLine())
+            String line = sc.nextLine();
+            while(sc.hasNextLine())
                 {
-                line = scan.nextLine();
+                line = sc.nextLine();
                 String[] list = line.split(",");
                 int key = Integer.parseInt(list[0]);
                 String name = list[1];
@@ -49,11 +49,11 @@ public class engine
                 System.out.println(" ");
                 count++;
                 }
-            scan.close();
             o.overpriced(theData);
             n.searchName(theData);
             s.searchSpecialty(theData);
             f.feeData(theData);
+            sc.close();
             }
         catch (FileNotFoundException e) 
             {     

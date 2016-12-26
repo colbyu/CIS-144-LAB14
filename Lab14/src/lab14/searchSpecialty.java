@@ -1,13 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+This class takes a capitalization-agnostic string input 
+of a specialty and attempts to locate it 
+within the main arraylist
  */
 package lab14;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 /**
  *
  * @author colby
@@ -22,7 +21,10 @@ public class searchSpecialty
         int found = 0;
         for (int i = 0; i < vals.size(); i++) 
             {
-            if(vals.get(i).equals(strSpecial.trim()))
+            // error handling 
+            // - the following statement ignores capitalization
+            // - in case user doesn't bother to capitalize the name:
+            if(vals.get(i).equalsIgnoreCase(strSpecial.trim()))
                 {
                 found = found + 1;
                 }
@@ -31,5 +33,6 @@ public class searchSpecialty
             System.out.println(found + " specialists found ");
         else
             System.out.println(" sprciaist not found ");
+        ///sc.close();
         }
     }

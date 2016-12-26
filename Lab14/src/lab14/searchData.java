@@ -23,7 +23,10 @@ public class searchData
         boolean found = false;
         for (int i = 0; i < vals.size(); i++) 
             {
-            if(vals.get(i).equals(strName.trim()))
+            // error handling 
+            // - the following statement ignores capitalization
+            // - in case user doesn't bother to capitalize the name:
+            if(vals.get(i).equalsIgnoreCase(strName.trim()))
                 {
                 found = true;
                 break;
@@ -33,5 +36,6 @@ public class searchData
             System.out.println(" data found ");
         else
             System.out.println(" data not found ");
+        //sc.close();
         }
     }

@@ -21,9 +21,12 @@ public class searchSpecialty
         int found = 0;
         for (int i = 0; i < vals.size(); i++) 
             {
-            // error handling 
-            // - the following statement ignores capitalization
-            // - in case user doesn't bother to capitalize the name:
+            /*
+            error handling 
+            - the following statement ignores capitalization
+            - in case user doesn't bother to capitalize 
+            the name of the specialty:
+            */
             if(vals.get(i).equalsIgnoreCase(strSpecial.trim()))
                 {
                 found = found + 1;
